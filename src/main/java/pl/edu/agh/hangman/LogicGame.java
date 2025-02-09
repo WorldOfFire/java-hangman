@@ -6,7 +6,7 @@ public class LogicGame {
     private char guess;
 
     public LogicGame(String word) {
-        this.word = word;
+        this.word = word.toLowerCase();
         this.wordCharArray = word.toCharArray();
     }
 
