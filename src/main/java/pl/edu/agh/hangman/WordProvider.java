@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 public class WordProvider {
-    public void getRandom(){
+    public String getRandom() {
         Random random = new Random();
         List<String> words = new ArrayList<>();
         InputStream is = getClass().getClassLoader().getResourceAsStream("slowa.txt");
@@ -16,18 +16,14 @@ public class WordProvider {
 
             String line;
             while ((line = reader.readLine()) != null) {
-                System.out.println(line);
                 words.add(line);
             }
 
-            System.out.println(words.size());
-            String randomWord = words.get((int)random.nextInt(words.size()));
-            System.out.println(randomWord);
+            String randomWord = words.get((int) random.nextInt(words.size()));
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
+    return words.get(random.nextInt(words.size()));
     }
 }
