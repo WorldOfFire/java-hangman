@@ -7,14 +7,21 @@ public class Interface {
     public void gameStart() {
         System.out.println("Welcome to Hangman!");
         System.out.println("<Guess>");
-        int wordLenght = wordProvider.getLenght();
-        for (int i = 0; i < wordLenght; i++) {
-            System.out.println("_");
+        WordProvider wordProvider = new WordProvider();
+        String randomWord = wordProvider.getRandom();
+        System.out.println(randomWord);
+        LogicGame logicGame = new LogicGame("barbara");
+        char[] currentCharArray  = new char[logicGame.getWordCharArray().length];
+        for (int i = 0; i < logicGame.getWordCharArray().length; i++){
+            currentCharArray[i] = '-';
         }
+        System.out.println(currentCharArray);
+
     }
 
     public char[] wordScanner() {
 
+        char[] guessChars = new char[2];
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Zgaduje literke-wybierz 1");
@@ -32,6 +39,6 @@ public class Interface {
                     char[] guessedWord = scanner.next().toCharArray();
                 }
         }
-
+return guessChars;
     }
 }

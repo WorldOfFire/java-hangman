@@ -56,5 +56,7 @@ public class Hangman {
 
     public static void main(String[] args) {
 
+        Interface interface1 = new Interface();
+        interface1.gameStart();
     }
 }
